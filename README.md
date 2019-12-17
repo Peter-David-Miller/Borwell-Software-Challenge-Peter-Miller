@@ -17,4 +17,4 @@ This program was written using Microsoft Visual Studio 17 in C#, and is written 
 
 ### Setup
 This program requires Microsoft Visual Studio 17 or newer to run. 
-To run this program, clone the repository locally, then run via Microsoft Visual Studio IDE or run the BorwellSoftwareChallenge.exe application in Command Prompt.
+To run this program, clone the repository locally, then run via Microsoft Visual Studio IDE or run the BorwellSoftwareChallenge.exe application in Command Prompt. This second option will require you to write out the full filepath for Command prompt to find the application
