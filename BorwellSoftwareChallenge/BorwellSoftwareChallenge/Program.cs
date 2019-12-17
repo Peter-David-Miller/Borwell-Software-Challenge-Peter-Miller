@@ -47,8 +47,11 @@ namespace BorwellSoftwareChallenge
                 // Working out paint required
 
                 double LengthsWall_surface_area = LengthInt * HeightInt * 2;
+                Console.WriteLine("The total surface areas of the length side walls is " + LengthsWall_surface_area + "m^2");
                 double WidthsWall_surface_area = WidthInt * HeightInt * 2;
+                Console.WriteLine("The total surface areas of the width side walls is " + WidthsWall_surface_area + "m^2");
                 double Total_wall_surface_area = LengthsWall_surface_area + WidthsWall_surface_area;
+                Console.WriteLine("The total surface area for the room is " + Total_wall_surface_area + "m^2");
                 double Paint_required = Total_wall_surface_area / 10;
                 Console.WriteLine("When assuming 10m^2 per 1 litre of paint, to paint all the walls you need " + Paint_required + " litres of paint.");
 
