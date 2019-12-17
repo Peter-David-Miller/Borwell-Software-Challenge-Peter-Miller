@@ -13,4 +13,8 @@ This is the Application for the Borwell Software Challenge, which completes the 
 * Works out room Volune from inputted data.
 
 ### Technologies
-This program was written using Microsoft Visual Studio 17 in C#. The program is written to run in the Console Window to allow for ease of use on multiple different systems, in case different systems did not have the same program available to them. 
+This program was written using Microsoft Visual Studio 17 in C#, and is written to run via Command line.
+
+### Setup
+This program requires Microsoft Visual Studio 17 or newer to run. 
+To run this program, clone the repository locally, then run via Microsoft Visual Studio IDE or run the BorwellSoftwareChallenge.exe application in Command Prompt.
