@@ -1,0 +1,5 @@
+﻿<linker>
+  <assembly fullname="Borwell_Project_Blazor">
+    <type fullname="*" required="true" />
+  </assembly>
+</linker>

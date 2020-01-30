@@ -1,0 +1,78 @@
+﻿@page "/Input"
+
+<h3>Input Room Attributes below</h3>
+
+<input placeholder="Add Length" @bind="LengthString" />
+<input placeholder="Add Width" @bind="WidthString" />
+<input placeholder="Add Height" @bind="HeightString" />
+<button @onclick="InputData"> Input Data </button>
+<h3>@ErrorString</h3>
+<p>Inputed Length : @LengthString m</p>
+<p>Inputed Width :@WidthString m</p>
+<p>Inputed Height :@HeightString m</p>
+<p>Area of Room : @Area m^2</p>
+<p>Total Surface Area of Room Walls : @Total_wall_surface_area m^2</p>
+<p>Paint required when assuming 10m^2 per litre : @Paint_required Litres</p>
+<p>Total Volume of Room : @Volume m^3</p>
+
+@code {
+    public Room[] NewRoom = new Room[1];
+    string LengthString;
+    string WidthString;
+    string HeightString;
+    float Area;
+    float Total_wall_surface_area;
+    float Paint_required;
+    float Volume;
+    string ErrorString;
+    public void InputData()
+    {
+        if (!string.IsNullOrWhiteSpace(LengthString) && !string.IsNullOrWhiteSpace(WidthString) && !string.IsNullOrWhiteSpace(HeightString))
+        {
+            ErrorString = ("");
+            bool ValidData = false;
+            try
+            {
+                Room Data = new Room(Convert.ToSingle(LengthString), Convert.ToSingle(WidthString), Convert.ToSingle(HeightString),0 , 0 , 0 , 0 ,0);
+                NewRoom[0] = Data;
+                ValidData = true;
+            }
+
+            catch (FormatException)
+            {
+                ErrorString = ("The Format of the inputted data is not correct, please only input Intergers or Decimals");
+                ValidData = false;
+            }
+            LengthString = string.Empty;
+            WidthString = string.Empty;
+            HeightString = string.Empty;
+
+            if (ValidData == true)
+            {
+                NewRoom[0].Area = NewRoom[0].LengthFloat * NewRoom[0].WidthFloat;
+
+
+                // Working out paint required
+
+                NewRoom[0].LengthSideWalls = NewRoom[0].LengthFloat * NewRoom[0].HeightFloat * 2;
+                NewRoom[0].WidthSideWalls = NewRoom[0].WidthFloat * NewRoom[0].HeightFloat * 2;
+                NewRoom[0].SurfaceArea = NewRoom[0].LengthSideWalls + NewRoom[0].WidthSideWalls;
+                Paint_required = NewRoom[0].SurfaceArea / 10;
+                //Working out Volume
+                NewRoom[0].Volume = NewRoom[0].LengthFloat * NewRoom[0].WidthFloat * NewRoom[0].HeightFloat;
+                Area = NewRoom[0].Area;
+                Total_wall_surface_area = NewRoom[0].SurfaceArea;
+                Volume = NewRoom[0].Volume;
+                NewRoom[0].LengthFloat = 0;
+                NewRoom[0].WidthFloat = 0;
+                NewRoom[0].HeightFloat = 0;
+            }
+        }
+        else
+        {
+            ErrorString = ("Please add Numberic Values to all the input boxes");
+        }
+
+    }
+}
+

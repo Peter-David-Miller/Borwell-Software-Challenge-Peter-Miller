@@ -21,7 +21,7 @@ namespace BorwellSoftwareChallenge
 
             Double LengthInt = 0;
             Double WidthInt = 0;
-            Double HeightInt = 0;
+            double HeightInt = 0;
             Boolean InputValid = true;
             // Checking if the inputting Strings are in Numeric format, allowing for conversion to Doubles.
             try
